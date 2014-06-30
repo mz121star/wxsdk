@@ -61,7 +61,7 @@
         $.ajax({
             url:"controller/reg.php",
             method:"post",
-            data:$("#loginform").serialize() ,
+            data:$("#joinform").serialize() ,
             dataType:"json"
         }).success(function(d){
                     var r=JSON.parse(d)["msg"];
