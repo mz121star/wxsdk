@@ -8,12 +8,12 @@
    $wxpwd=$_POST["wxpwd"];
    $dbhelper=new dbhelper();
    $islogin=$dbhelper->userLogin($wxid,$wxpwd);
-   echo $islogin;
+   
    if($islogin){
 		$_SESSION["uname"]=$wxid;
-		return  json_encode('{"msg":"true"}');
+		echo  json_encode('{"msg":"true"}');
    }
    else{
-	   return  json_encode('{"msg":"false"}');
+	   echo  json_encode('{"msg":"false"}');
    }
  ?>

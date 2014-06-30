@@ -28,7 +28,7 @@
 				$selectUser="SELECT * FROM account  where wxid='".$WeiXinId."' and wxpwd='".$WeiXinPWD."'";
 
                 $result=$this->conn->ExecuteSQL($selectUser);
-				echo count($result);
+				 
                 if(count($result)>1){
 					 return  true;
                 } else{
