@@ -33,14 +33,14 @@
 
 
 <div class="container">
-    <form class="form-signin" role="form">
+    <form class="form-signin" role="form" id="joinform">
         <h2 class="form-signin-heading">注册微信后台</h2>
-        <input type="text" class="form-control" placeholder="请输入用户名" required autofocus>
-        <input type="text" class="form-control" placeholder="请输入密码" required>
-        <input type="text" class="form-control" placeholder="AppId" required>
-        <input type="text" class="form-control" placeholder="AppSecret" required>
+        <input type="text" class="form-control" name="wxid" placeholder="请输入用户名" required autofocus>
+        <input type="text" class="form-control" name="wxpwd"  placeholder="请输入密码" required>
+        <input type="text" class="form-control" name="appid"  placeholder="AppId" required>
+        <input type="text" class="form-control"  name="appsecret" placeholder="AppSecret" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="reg">注册</button>
     </form>
 </div>
 
@@ -57,7 +57,20 @@
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
+    $("#reg").on("click",function(){
+        $.ajax({
+            url:"controller/reg.php",
+            method:"post",
+            data:$("#loginform").serialize() ,
+            dataType:"json"
+        }).success(function(d){
+                    var r=JSON.parse(d)["msg"];
+                    if(r){
+                        window.location="/";
+                    }
 
+                })
+    })
 </script>
 </body>
 </html>

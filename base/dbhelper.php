@@ -35,6 +35,11 @@
 					 return false;
                 }
 		}
+		public function userReg($WeiXinId,$WeiXinPWD,$appid,$appsecret){
+			$insertUser="insert into account   values ('".$WeiXinId."','".$phone."','".$name."','url')"  ;
+			$result=$this->conn->ExecuteSQL($insertUser);
+			return $result;
+		}
 		// 创建菜单
 		public  function createMenu($data){
 				$ch = curl_init();
