@@ -1,7 +1,7 @@
 <?php
 
    include_once('class.MySQL.php');
-
+   include_once('wechat.class.php');
  
 
 
@@ -40,6 +40,19 @@
 			$result=$this->conn->ExecuteSQL($insertUser);
 			return $result;
 		}
+        public function updateMenu($weixinid,$menu){
+                $sql="SELECT * FROM menu  where wxid='".$WeiXinId."'";
+                $insertsql="insert into menu valuse('".$weixinid."','".$menu."')";
+
+                $updatesql="update menu SET menustring = '".$menu."' WHERE wxid='".$weixinid."'";
+                $result=$this->conn->ExecuteSQL($sql);
+
+                if(count($result)>1){
+                        $this->conn->ExecuteSQL($updatesql);
+                } else{
+                    $this->conn->ExecuteSQL($insertsql);
+                }
+        }
 		// 创建菜单
 		public  function createMenu($data){
 				$ch = curl_init();

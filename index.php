@@ -38,7 +38,7 @@
 
 <div class="container">
                <textarea class="form-control" id="menu">
-                   s
+
                </textarea>
 </div>
 

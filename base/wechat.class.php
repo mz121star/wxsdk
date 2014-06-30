@@ -1,7 +1,7 @@
 <?php 
 class Wechat
 {
-private function getAccessToken() //获取access_token
+public function getAccessToken() //获取access_token
 {
 $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".AppId."&secret=".AppSecret;
 $data = getCurl($url);//通过自定义函数getCurl得到https的内容
@@ -9,9 +9,9 @@ $resultArr = json_decode($data, true);//转为数组
 return $resultArr["access_token"];//获取access_token
 }
 
-public function creatMenu()//创建菜单
+public function creatMenu($accessToken)//创建菜单
 {
-$accessToken = $this->getAccessToken();//获取access_token
+//$accessToken = $this->getAccessToken();//获取access_token
 $menuPostString = '{//构造POST给微信服务器的菜单结构体
 "button":[
 {
