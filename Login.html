@@ -62,7 +62,7 @@
                   url:"controller/login.php",
                   method:"post",
                   data:$("#loginform").serialize() ,
-                  type:"json"
+                  dataType:"json"
               }).success(function(d){
                           alert(d);
                       })
