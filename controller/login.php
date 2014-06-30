@@ -7,9 +7,9 @@
    $islogin=$dbhelper->userLogin($wxid,$wxpwd);
    if($islogin){
 		$_SESSION["uname"]=$wxid;
-		return  json_encode('{"msg":true}');
+		return  json_encode('{"msg":"true"}');
    }
    else{
-	   return  json_encode('{"msg":false}');
+	   return  json_encode('{"msg":"false"}');
    }
  ?>
