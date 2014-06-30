@@ -33,14 +33,14 @@
 
 
 <div class="container">
-    <form class="form-signin" role="form">
+    <form class="form-signin" role="form" id="loginform">
         <h2 class="form-signin-heading">登录微信后台</h2>
         <input type="text" class="form-control" placeholder="请输入用户名" required autofocus>
         <input type="password" class="form-control" placeholder="请输入密码" required>
         <label class="checkbox">
             <input type="checkbox" value="remember-me"> Remember me
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="login">登录</button>
     </form>
 </div>
 
@@ -57,7 +57,16 @@
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
-
+          $("#login").on("click",function(){
+              $.ajax({
+                  url:"controller/login.php",
+                  method:"post",
+                  data:$("#loginform").serialize() ,
+                  type:"json"
+              }).success(function(d){
+                          alert(d);
+                      })
+          })
 </script>
 </body>
 </html>
