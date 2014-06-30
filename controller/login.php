@@ -8,6 +8,7 @@
    $wxpwd=$_POST["wxpwd"];
    $dbhelper=new dbhelper();
    $islogin=$dbhelper->userLogin($wxid,$wxpwd);
+   echo $islogin;
    if($islogin){
 		$_SESSION["uname"]=$wxid;
 		return  json_encode('{"msg":"true"}');
