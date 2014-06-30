@@ -16,7 +16,7 @@
 
 
 		 function __construct() {
-				 $this->mysql_server_name="localhost"; //数据库服务器名称
+			 $this->mysql_server_name="localhost"; //数据库服务器名称
 				$this->mysql_username="root"; // 连接数据库用户名
 				$this->mysql_password="8ecba89b81"; // 连接数据库密码
 				$this->mysql_database="wxsdk"; // 数据库的名字
@@ -24,8 +24,8 @@
 		}
 
 
-		public function userLogin(){
-				$selectUser="SELECT * FROM users  where id='".$WeiXinId."'";
+		public function userLogin($WeiXinId,$WeiXinPWD){
+				$selectUser="SELECT * FROM account  where wxid='".$WeiXinId."' and wxpwd='".$WeiXinPWD."'";
 
                 $result=$this->conn->ExecuteSQL($selectUser);
 
