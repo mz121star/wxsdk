@@ -36,7 +36,7 @@
                 }
 		}
 		public function userReg($WeiXinId,$WeiXinPWD,$appid,$appsecret){
-			$insertUser="insert into account   values ('".$WeiXinId."','".$phone."','".$name."','url')"  ;
+			$insertUser="insert into account   values ('".$WeiXinId."','".$WeiXinPWD."','".$appid."','".$appsecret."')"  ;
 			$result=$this->conn->ExecuteSQL($insertUser);
 			return $result;
 		}
