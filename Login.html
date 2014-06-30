@@ -64,7 +64,11 @@
                   data:$("#loginform").serialize() ,
                   dataType:"json"
               }).success(function(d){
-                          alert(d);
+                         var r=JSON.parse(d)["msg"];
+                         if(r){
+                             window.location="/";
+                         }
+
                       })
           })
 </script>
