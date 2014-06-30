@@ -11,9 +11,9 @@
    
    if($islogin){
 		$_SESSION["uname"]=$wxid;
-		echo  json_encode('{"msg":"true"}');
+		echo  json_encode('{"msg":true}');
    }
    else{
-	   echo  json_encode('{"msg":"false"}');
+	   echo  json_encode('{"msg":false}');
    }
  ?>
