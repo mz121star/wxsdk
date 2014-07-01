@@ -36,11 +36,12 @@
 <body class="metro">
 
  <?php
-                                     include_once('base/dbhelper.php');
+                                      include_once('base/dbhelper.php');
                                       $dbhelper=new dbhelper();
                                       $r=$dbhelper->getMenu($_SESSION["uname"]);
+                                      echo $r;
                                       $menustring= urldecode($r["menustring"]) ;
-                                ?>
+ ?>
 
 <div class="container">
    欢迎：<?php echo $_SESSION["uname"] ?>
