@@ -35,17 +35,17 @@
 </head>
 <body class="metro">
 
-
+ <?php
+                                     include_once('../base/dbhelper.php');
+                                      $dbhelper=new dbhelper();
+                                      $r=$dbhelper->getMenu($_SESSION["uname"]);
+                                      $menustring= urldecode($r["menustring"]) ;
+                                ?>
 
 <div class="container">
    欢迎：<?php echo $_SESSION["uname"] ?>
                <textarea class="form-control" id="menu">
-                                <?php
-                                     include_once('../base/dbhelper.php');
-                                      $dbhelper=new dbhelper();
-                                      $r=$dbhelper->getMenu($_SESSION["uname"]);
-                                       echo $r["menustring"]
-                                ?>
+
                </textarea>
                <input type="button" classs="btn btn-success" id="updatemenu" value="更新菜单"/>
 </div>
@@ -65,6 +65,9 @@
 
 </body>
 <script>
+$(function(){
+  $("#menu").val("<? php echo $menustring ?>")
+})
    $("#updatemenu").on("click",function(){
              var menustr=$("#menu").val();
            $.ajax({
