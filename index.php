@@ -55,7 +55,7 @@
 
 </body>
 <script>
-   $("#updatemenu").on("click",funciton(){
+   $("#updatemenu").on("click",function(){
        var menustr=$("#menu").val();
            $.ajax({
                    url:"controller/menu.php",
