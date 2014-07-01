@@ -45,11 +45,15 @@
                 $insertsql="insert into menu valuse('".$weixinid."','".$menu."')";
 
                 $updatesql="update menu SET menustring = '".$menu."' WHERE wxid='".$weixinid."'";
+                echo  $sql;
+
                 $result=$this->conn->ExecuteSQL($sql);
 
                 if(count($result)>1){
+                 echo  $updatesql;
                         $this->conn->ExecuteSQL($updatesql);
                 } else{
+                  echo  $insertsql;
                     $this->conn->ExecuteSQL($insertsql);
                 }
         }
