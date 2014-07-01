@@ -34,6 +34,7 @@
 
 
 <div class="container">
+   欢迎：<?php echo $_SESSION["uname"] ?>
                <textarea class="form-control" id="menu">
 
                </textarea>
