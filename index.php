@@ -69,7 +69,16 @@
 <script>
 
   $("#publicmenu").on("click",function(){
+       $.ajax({
+                         url:"controller/publicmenu.php",
+                         method:"post",
+                         data:{"menustring":encodeURI(menustr)},
+                         dataType:"json"
+                     }).success(function(d){
 
+                                alert(r);
+
+                             })
   })
    $("#updatemenu").on("click",function(){
              var menustr=$("#menu").val();
