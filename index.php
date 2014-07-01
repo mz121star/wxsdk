@@ -66,9 +66,7 @@
 
 </body>
 <script>
-$(function(){
-  $("#menu").val('<?php echo $menustring ?>');
-})
+
    $("#updatemenu").on("click",function(){
              var menustr=$("#menu").val();
            $.ajax({
