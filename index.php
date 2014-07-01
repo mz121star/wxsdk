@@ -39,7 +39,7 @@
                                       include_once('base/dbhelper.php');
                                       $dbhelper=new dbhelper();
                                       $r=$dbhelper->getMenuString($_SESSION["uname"]);
-
+                                        echo $r["menustring"];
                                       $menustring= urldecode($r["menustring"]) ;
  ?>
 
