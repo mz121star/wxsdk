@@ -35,17 +35,17 @@
 </head>
 <body class="metro">
 
- <?php
-                                      include_once('base/dbhelper.php');
-                                      $dbhelper=new dbhelper();
-                                      $r=$dbhelper->getMenuString($_SESSION["uname"]);
-                                        echo $r["menustring"];
-                                      $menustring= urldecode($r["menustring"]) ;
- ?>
 
 <div class="container">
    欢迎：<?php echo $_SESSION["uname"] ?>
                <textarea class="form-control" id="menu">
+                   <?php
+                                                        include_once('base/dbhelper.php');
+                                                        $dbhelper=new dbhelper();
+                                                        $r=$dbhelper->getMenuString($_SESSION["uname"]);
+                                                        echo urldecode($r["menustring"]);
+                                                        $menustring= urldecode($r["menustring"]) ;
+                   ?>
 
                </textarea>
                <input type="button" classs="btn btn-success" id="updatemenu" value="更新菜单"/>
