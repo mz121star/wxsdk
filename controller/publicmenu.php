@@ -7,8 +7,11 @@
 
    $menustring=$_POST["menustring"];
    $menustring=urldecode($r["menustring"]);
+
    $dbhelper=new dbhelper();
    $accesstoken=$dbhelper->GetAccseeToken($_SESSION["uname"]);
+    echo   $menustring;
+    echo    $accesstoken;
   echo  $dbhelper->createMenu($menustring,$accesstoken);
 
 
