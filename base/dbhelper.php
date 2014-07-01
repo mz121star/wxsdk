@@ -57,6 +57,12 @@
                     $this->conn->ExecuteSQL($insertsql);
                 }
         }
+
+        public function getMenu($weixinid){
+                 $sql="SELECT menustring FROM menu  where wxid='".$weixinid."'";
+                 $result=$this->conn->ExecuteSQL($sql);
+                 return $result;
+        }
 		// 创建菜单
 		public  function createMenu($data){
 				$ch = curl_init();

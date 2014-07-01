@@ -40,7 +40,12 @@
 <div class="container">
    欢迎：<?php echo $_SESSION["uname"] ?>
                <textarea class="form-control" id="menu">
-
+                                <?php
+                                     include_once('../base/dbhelper.php');
+                                      $dbhelper=new dbhelper();
+                                      $r=$dbhelper->getMenu($_SESSION["uname"]);
+                                       echo $r["menustring"]
+                                ?>
                </textarea>
                <input type="button" classs="btn btn-success" id="updatemenu" value="更新菜单"/>
 </div>

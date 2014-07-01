@@ -9,7 +9,7 @@
 
 
    $dbhelper=new dbhelper();
-   $r=$dbhelper->updateMenu($_SESSION["uname"],$menustring);
+   $r=$dbhelper->updateMenu($_SESSION["uname"],urldecode($menustring));
     echo  json_encode('{"msg":"ok"}');
 
 
