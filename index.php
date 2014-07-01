@@ -1,7 +1,4 @@
-<?php
-     session_start();
 
-  ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -40,6 +37,7 @@
                <textarea class="form-control" id="menu">
 
                </textarea>
+               <input type="button" classs="btn btn-success" id="updatemenu" value="更新菜单"/>
 </div>
 
 
@@ -56,4 +54,19 @@
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
 </body>
+<script>
+   $("#updatemenu").on("click",funciton(){
+       var menustr=$("#menu").val();
+           $.ajax({
+                   url:"controller/menu.php",
+                   method:"post",
+                   data:{"menustring",menustr}
+                   dataType:"json"
+               }).success(function(d){
+                           var r=JSON.parse(d)["msg"];
+                          alert(r);
+
+                       })
+   })
+</script>
 </html>
