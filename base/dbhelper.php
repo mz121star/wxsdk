@@ -58,7 +58,7 @@
                 }
         }
 
-        public function getMenu($weixinid){
+        public function getMenuString($weixinid){
                  $sql="SELECT menustring FROM menu  where wxid='".$weixinid."'";
                  $result=$this->conn->ExecuteSQL($sql);
                  return $result;

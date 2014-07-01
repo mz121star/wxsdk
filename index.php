@@ -38,8 +38,8 @@
  <?php
                                       include_once('base/dbhelper.php');
                                       $dbhelper=new dbhelper();
-                                      $r=$dbhelper->getMenu($_SESSION["uname"]);
-                                      echo $r;
+                                      $r=$dbhelper->getMenuString($_SESSION["uname"]);
+
                                       $menustring= urldecode($r["menustring"]) ;
  ?>
 
