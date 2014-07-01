@@ -36,7 +36,7 @@
 <body class="metro">
 
  <?php
-                                     include_once('../base/dbhelper.php');
+                                     include_once('base/dbhelper.php');
                                       $dbhelper=new dbhelper();
                                       $r=$dbhelper->getMenu($_SESSION["uname"]);
                                       $menustring= urldecode($r["menustring"]) ;
