@@ -10,10 +10,8 @@
    echo $_SESSION["uname"];
    $dbhelper=new dbhelper();
    $r=$dbhelper->updateMenu($_SESSION["uname"],urldecode($menustring));
+ echo  json_encode('{"msg":"ok"}');
 
-
-    echo  "ok";
- }
 
 
 
