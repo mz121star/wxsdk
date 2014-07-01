@@ -56,11 +56,11 @@
 </body>
 <script>
    $("#updatemenu").on("click",function(){
-       var menustr=$("#menu").val();
+             var menustr=$("#menu").val();
            $.ajax({
                    url:"controller/menu.php",
                    method:"post",
-                   data:{"menustring",menustr}
+                   data:{"menustring":menustr}
                    dataType:"json"
                }).success(function(d){
                            var r=JSON.parse(d)["msg"];
