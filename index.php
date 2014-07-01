@@ -65,7 +65,7 @@
            $.ajax({
                    url:"controller/menu.php",
                    method:"post",
-                   data:{"menustring":escape(menustr)},
+                   data:{"menustring":encodeURI(menustr)},
                    dataType:"json"
                }).success(function(d){
                            var r=JSON.parse(d)["msg"];
