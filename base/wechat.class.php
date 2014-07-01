@@ -1,9 +1,9 @@
 <?php 
 class Wechat
 {
-public function getAccessToken() //获取access_token
+public function getAccessToken($appid,$appsecre) //获取access_token
 {
-$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".AppId."&secret=".AppSecret;
+$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$appsecre;
 $data = getCurl($url);//通过自定义函数getCurl得到https的内容
 $resultArr = json_decode($data, true);//转为数组
 return $resultArr["access_token"];//获取access_token

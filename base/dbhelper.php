@@ -45,15 +45,14 @@
                 $insertsql="insert into menu values('".$weixinid."','".$menu."')";
 
                 $updatesql="update menu SET menustring = '".$menu."' WHERE wxid='".$weixinid."'";
-                echo  $sql;
 
                 $result=$this->conn->ExecuteSQL($sql);
 
                 if(count($result)>1){
-                 echo  $updatesql;
+
                         $this->conn->ExecuteSQL($updatesql);
                 } else{
-                  echo  $insertsql;
+
                     $this->conn->ExecuteSQL($insertsql);
                 }
         }
@@ -63,10 +62,20 @@
                  $result=$this->conn->ExecuteSQL($sql);
                  return $result;
         }
+
+        public function GetAccseeToken($weixinid){
+                $Wechat = new Wechat();
+                $sql="SELECT appid,appsecre FROM account  where wxid='".$weixinid."'";
+                 $result=$this->conn->ExecuteSQL($sql);
+                 $appid=$result["appid"];
+                 $appsecre=$result["appsecre"];
+                 $token=$Wechat->getAccessToken($appid,$appsecre);
+                 return $token;
+        }
 		// 创建菜单
-		public  function createMenu($data){
+		public  function createMenu($data,$token){
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".ACCESS_TOKEN);
+				curl_setopt($ch, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$token);
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);

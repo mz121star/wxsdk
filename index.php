@@ -49,6 +49,7 @@
 
                </textarea>
                <input type="button" classs="btn btn-success" id="updatemenu" value="更新菜单"/>
+               <input type="button" classs="btn btn-success" id="publicmenu" value="发布菜单"/>
 </div>
 
 
@@ -67,6 +68,9 @@
 </body>
 <script>
 
+  $("#publicmenu").on("click",function(){
+
+  })
    $("#updatemenu").on("click",function(){
              var menustr=$("#menu").val();
            $.ajax({
