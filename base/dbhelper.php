@@ -64,13 +64,25 @@
         }
 
         public function GetAccseeToken($weixinid){
-                $Wechat = new Wechat();
-                $sql="SELECT appid,appsecre FROM account  where wxid='".$weixinid."'";
-                 $result=$this->conn->ExecuteSQL($sql);
-                 $appid=$result["appid"];
-                 $appsecre=$result["appsecre"];
-                 $token=$Wechat->getAccessToken($appid,$appsecre);
-                 return $token;
+                 $hastokensql="SELECT accesstoken FROM account  where wxid='".$weixinid."'";
+                  $result=$this->conn->ExecuteSQL($hastokensql);
+                  if(!$result["accesstoken"])   {
+                         $Wechat = new Wechat();
+                         $sql="SELECT appid,appsecre FROM account  where wxid='".$weixinid."'";
+                         $result=$this->conn->ExecuteSQL($sql);
+                         $appid=$result["appid"];
+                         $appsecre=$result["appsecre"];
+                         $token=$Wechat->getAccessToken($appid,$appsecre);
+
+                         $updatesql="update account SET accesstoken = '".$token."' WHERE wxid='".$weixinid."'";
+                          $result=$this->conn->ExecuteSQL($updatesql);
+                         return $token;
+                 }
+                 else{
+                     return $result["accesstoken"];
+                 }
+
+
         }
 		// 创建菜单
 		public  function createMenu($data,$token){
