@@ -69,6 +69,7 @@
 <script>
 
   $("#publicmenu").on("click",function(){
+    var menustr=$("#menu").val();
        $.ajax({
                          url:"controller/publicmenu.php",
                          method:"post",
