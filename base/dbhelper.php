@@ -42,7 +42,7 @@
 		}
         public function updateMenu($weixinid,$menu){
                 $sql="SELECT * FROM menu  where wxid='".$weixinid."'";
-                $insertsql="insert into menu valuse('".$weixinid."','".$menu."')";
+                $insertsql="insert into menu values('".$weixinid."','".$menu."')";
 
                 $updatesql="update menu SET menustring = '".$menu."' WHERE wxid='".$weixinid."'";
                 echo  $sql;
