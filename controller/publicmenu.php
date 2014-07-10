@@ -3,7 +3,9 @@
     ini_set('display_errors', '1');
 
     session_start();
+
    include_once('../base/dbhelper.php');
+$dbhelper=new dbhelper();
     $refresh=$_POST["refresh"]=="1"?true:false;
     if($refresh){
         $accesstoken=$dbhelper->GetAccseeToken($_SESSION["uname"],$refresh);
@@ -14,7 +16,7 @@
 
    $menustring=urldecode($menustring);
 
-   $dbhelper=new dbhelper();
+
    $accesstoken=$dbhelper->GetAccseeToken($_SESSION["uname"]);
     echo   $menustring;
     echo    $accesstoken;
