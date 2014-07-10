@@ -63,10 +63,10 @@
                  return $result;
         }
 
-        public function GetAccseeToken($weixinid){
+        public function GetAccseeToken($weixinid,$refresh=false){
                  $hastokensql="SELECT accesstoken FROM account  where wxid='".$weixinid."'";
                   $result=$this->conn->ExecuteSQL($hastokensql);
-                  if(!$result["accesstoken"])   {
+                  if(!$result["accesstoken"]||$refresh)   {
                          $Wechat = new Wechat();
                          $sql="SELECT appid,appsecre FROM account  where wxid='".$weixinid."'";
                          $result=$this->conn->ExecuteSQL($sql);

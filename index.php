@@ -50,6 +50,7 @@
                </textarea>
                <input type="button" classs="btn btn-success" id="updatemenu" value="更新菜单"/>
                <input type="button" classs="btn btn-success" id="publicmenu" value="发布菜单"/>
+             <input type="button" class="btn btn-danger" id="refreshtoken" value="刷新token" />
 </div>
 
 
@@ -93,6 +94,18 @@
                           alert(r);
 
                        })
-   })
+   });
+    $("#refreshtoken").on("click",function(){
+        $.ajax({
+            url:"controller/publicmenu.php",
+            method:"post",
+            data:{"refresh":"1"},
+            dataType:"json"
+        }).success(function(d){
+
+            alert(r);
+
+        })
+    })
 </script>
 </html>

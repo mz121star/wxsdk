@@ -4,8 +4,14 @@
 
     session_start();
    include_once('../base/dbhelper.php');
-
+    $refresh=$_POST["refresh"]=="1"?true:false;
+    if($refresh){
+        $accesstoken=$dbhelper->GetAccseeToken($_SESSION["uname"],$refresh);
+        echo "token刷新成功";
+        exit;
+    }
    $menustring=$_POST["menustring"];
+
    $menustring=urldecode($menustring);
 
    $dbhelper=new dbhelper();
